@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "pathMappings": {
+    "@/*": ["src/*"],
+    "modules/*": ["src/modules/*"],
+    "utils/*": ["src/utils/*"],
+    "config/*": ["src/config/*"],
+    "common/*": ["src/common/*"]
+  },
+  "compilerOptions": {
+    "deleteOutDir": true
+  }
+}
