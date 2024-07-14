@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("../services/user.service");
+const swagger_1 = require("@nestjs/swagger");
 let UserController = class UserController {
     constructor(userService) {
         this.userService = userService;
@@ -22,13 +23,16 @@ let UserController = class UserController {
 };
 exports.UserController = UserController;
 __decorate([
-    (0, common_1.Get)('users'),
+    (0, common_1.Get)("users"),
+    (0, swagger_1.ApiOperation)({ summary: "获取用户列表" }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: "请求成功" }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "getUsers", null);
 exports.UserController = UserController = __decorate([
-    (0, common_1.Controller)('mock'),
+    (0, common_1.Controller)("mock"),
+    (0, swagger_1.ApiTags)("user"),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], UserController);
 //# sourceMappingURL=user.controller.js.map

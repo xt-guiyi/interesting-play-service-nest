@@ -5,10 +5,10 @@
  * @LastEditTime: 2024-07-02 22:21:13
  * @Description:
  */
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { MockModule } from '@/modules/mockModule/mock.module';
+import { Module } from "@nestjs/common";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { MockModule } from "@/modules/mockModule/mock.module";
 @Module({
   imports: [MockModule],
   controllers: [AppController],

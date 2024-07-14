@@ -11,7 +11,7 @@ const common_1 = require("@nestjs/common");
 const user_1 = require("../../../mocks/user");
 let UserService = class UserService {
     getUsers() {
-        return user_1.userMockData.users;
+        return user_1.userMockData;
     }
 };
 exports.UserService = UserService;
