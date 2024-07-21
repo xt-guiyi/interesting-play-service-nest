@@ -5,4 +5,5 @@ export declare class VideoService {
         total: any;
         data: any;
     };
+    getVideoDetail(id: any): any;
 }

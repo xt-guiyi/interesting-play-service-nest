@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPaginatedVideos = getPaginatedVideos;
+exports.videoDetail = videoDetail;
 const tools_1 = require("../utils/tools");
 const Mock = require("mockjs");
 const bannerList = [
@@ -57,14 +58,30 @@ const videoList = Mock.mock({
         {
             'id|+1': 1,
             title: '@ctitle(5,50)',
+            pubDate: '@integer(24, 5000)',
             duration: '@integer(24, 5000)',
-            author: '@cname',
-            url: null,
+            desc: '@cword(10,30)',
+            pic: null,
+            url: 'https://www.bilibili.com/video/BV1xK4y1p7yN',
             views: '@integer(1000, 1000000)',
+            reply: '@integer(1000, 100000)',
+            favorite: '@integer(1000, 10000)',
+            coin: '@integer(1000, 10000)',
+            share: '@integer(1000, 10000)',
+            like: '@integer(1000, 10000)',
+            dislike: '@integer(1000, 10000)',
+            danmaku: '@integer(1000, 10000)',
+            owner: {
+                mid: 66606350,
+                name: '@cname',
+                fans: '@integer(1000, 100000)',
+                videos: '@integer(5, 500)',
+                face: 'https://i2.hdslb.com/bfs/face/c9af3b32cf74baec5a4b65af8ca18ae5ff571f77.jpg',
+            },
         },
     ],
 }).videos.map(item => {
-    item.url = bannerList[(0, tools_1.getRandomInt)(0, bannerList.length - 1)];
+    item.pic = bannerList[(0, tools_1.getRandomInt)(0, bannerList.length - 1)];
     return item;
 });
 function getPaginatedVideos(page, pageSize) {
@@ -78,5 +95,36 @@ function getPaginatedVideos(page, pageSize) {
         total,
         data,
     };
+}
+function videoDetail(id) {
+    const data = Mock.mock({
+        'video|1': [
+            {
+                id: id,
+                pic: 'http://i1.hdslb.com/bfs/archive/ea0dd34bf41e23a68175680a00e3358cd249105f.jpg',
+                url: 'https://videos.cubox.pro/iw3rni/file/2024062923083169063/mda-qdq8qnmw9x5wm9jx.mp4',
+                title: '@ctitle(5,50)',
+                pubDate: 1721498978810,
+                duration: '@integer(24, 5000)',
+                desc: '【CB想说的】看完拜年祭之后最爱的一个节目！给有快板的部分简单加了一些不同风格的配乐hhh，感谢沃玛画的我！太可爱了哈哈哈哈哈哈哈！！！\n【Warma想说的】我画了打碟的CB，画风为了还原原版视频所以参考了四迹老师的画风，四迹老师的画真的太可爱啦！不过其实在画的过程中我遇到了一个问题，CB的耳机……到底是戴在哪个耳朵上呢？\n\n原版：av78977080\n编曲（配乐）：Crazy Bucket\n人声（配音）：Warma/谢拉\n曲绘：四迹/Warma\n动画：四迹/Crazy Bucket\n剧本：Mokurei-木灵君\n音频后期：DMYoung/纳兰寻风/Crazy Bucket\n包装：破晓天',
+                views: '@integer(1000, 1000000)',
+                reply: '@integer(1000, 100000)',
+                favorite: '@integer(1000, 10000)',
+                coin: '@integer(1000, 10000)',
+                share: '@integer(1000, 10000)',
+                like: '@integer(1000, 10000)',
+                dislike: '@integer(1000, 10000)',
+                danmaku: '@integer(1000, 10000)',
+                owner: {
+                    mid: 66606350,
+                    fans: '@integer(1000, 100000)',
+                    name: 'Crazy_Bucket_陈楒潼',
+                    videos: '@integer(5, 500)',
+                    face: 'https://i2.hdslb.com/bfs/face/c9af3b32cf74baec5a4b65af8ca18ae5ff571f77.jpg',
+                },
+            },
+        ],
+    }).video;
+    return data;
 }
 //# sourceMappingURL=video.js.map

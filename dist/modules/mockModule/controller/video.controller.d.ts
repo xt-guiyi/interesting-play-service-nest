@@ -8,4 +8,5 @@ export declare class VideoController {
         total: any;
         data: any;
     };
+    getVideoDetail(id: number): any;
 }

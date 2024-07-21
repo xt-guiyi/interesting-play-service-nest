@@ -4,4 +4,5 @@ declare function getPaginatedVideos(page: any, pageSize: any): {
     total: any;
     data: any;
 };
-export { getPaginatedVideos };
+declare function videoDetail(id: any): any;
+export { getPaginatedVideos, videoDetail };

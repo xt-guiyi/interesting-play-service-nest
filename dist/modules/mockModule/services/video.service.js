@@ -13,6 +13,9 @@ let VideoService = class VideoService {
     getVideoList(page, pageSize) {
         return (0, video_1.getPaginatedVideos)(page, pageSize);
     }
+    getVideoDetail(id) {
+        return (0, video_1.videoDetail)(id);
+    }
 };
 exports.VideoService = VideoService;
 exports.VideoService = VideoService = __decorate([

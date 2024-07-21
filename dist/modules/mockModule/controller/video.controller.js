@@ -23,6 +23,9 @@ let VideoController = class VideoController {
     getVideoList(page, pageSize) {
         return this.videoService.getVideoList(page, pageSize);
     }
+    getVideoDetail(id) {
+        return this.videoService.getVideoDetail(id);
+    }
 };
 exports.VideoController = VideoController;
 __decorate([
@@ -35,6 +38,15 @@ __decorate([
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)
 ], VideoController.prototype, "getVideoList", null);
+__decorate([
+    (0, common_1.Get)('getVideoDetail'),
+    (0, swagger_1.ApiOperation)({ summary: '获取视频详情' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: '请求成功' }),
+    __param(0, (0, common_1.Query)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", void 0)
+], VideoController.prototype, "getVideoDetail", null);
 exports.VideoController = VideoController = __decorate([
     (0, common_1.Controller)('mock/video'),
     (0, swagger_1.ApiTags)('video'),

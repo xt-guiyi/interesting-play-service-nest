@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 22:10:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-07-14 13:14:16
+ * @LastEditTime: 2024-07-20 22:23:01
  * @Description:
  */
 import { Controller, Get, Query } from "@nestjs/common";
@@ -18,5 +18,12 @@ export class VideoController {
 	@ApiResponse({ status: 200, description: '请求成功' })
 	getVideoList(@Query('page') page: number, @Query('pageSize') pageSize: number) {
 		return this.videoService.getVideoList(page, pageSize)
+	}
+
+	@Get('getVideoDetail')
+	@ApiOperation({ summary: '获取视频详情' })
+	@ApiResponse({ status: 200, description: '请求成功' })
+	getVideoDetail(@Query('id') id: number) {
+		return this.videoService.getVideoDetail(id)
 	}
 }
