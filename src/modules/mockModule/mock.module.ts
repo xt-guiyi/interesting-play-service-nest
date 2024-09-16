@@ -6,15 +6,11 @@
  * @Description:
  */
 import { Module } from "@nestjs/common";
-import { UserService } from "./services/user.service";
-import { UserController } from "./controller/user.controller";
-import { CommonService } from "./services/common.service";
-import { CommonController } from "./controller/common.controller";
-import { VideoService } from "./services/video.service";
-import { VideoController } from "./controller/video.controller";
+import { MockService } from "./services/mock.service";
+import { CommonController } from "./controller/mock.controller";
 
 @Module({
-  providers: [UserService, CommonService, VideoService],
-  controllers: [UserController, CommonController, VideoController],
+	providers: [MockService],
+	controllers: [CommonController],
 })
 export class MockModule {}

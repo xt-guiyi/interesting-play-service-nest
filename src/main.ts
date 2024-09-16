@@ -2,15 +2,16 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:04:24
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-07-14 12:22:16
+ * @LastEditTime: 2024-08-10 21:15:18
  * @Description:
  */
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { formatInterceptor } from "./common/FormatInterceptor";
-import * as os from "os";
 import { getLocalIpAddress } from "./utils/networkUtils";
+
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // swagger

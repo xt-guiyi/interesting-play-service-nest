@@ -13,22 +13,44 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VideoController = void 0;
+exports.CommonController = void 0;
 const common_1 = require("@nestjs/common");
-const video_service_1 = require("modules/mockModule/services/video.service");
 const swagger_1 = require("@nestjs/swagger");
-let VideoController = class VideoController {
-    constructor(videoService) {
-        this.videoService = videoService;
+const mock_service_1 = require("modules/mockModule/services/mock.service");
+let CommonController = class CommonController {
+    constructor(mockService) {
+        this.mockService = mockService;
+    }
+    getBanners() {
+        return this.mockService.getBanners();
+    }
+    getUsers() {
+        return this.mockService.getUsers();
     }
     getVideoList(page, pageSize) {
-        return this.videoService.getVideoList(page, pageSize);
+        return this.mockService.getVideoList(page, pageSize);
     }
     getVideoDetail(id) {
-        return this.videoService.getVideoDetail(id);
+        return this.mockService.getVideoDetail(id);
     }
 };
-exports.VideoController = VideoController;
+exports.CommonController = CommonController;
+__decorate([
+    (0, common_1.Get)('common/getBanners'),
+    (0, swagger_1.ApiOperation)({ summary: '获取轮播图数据' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: '请求成功' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CommonController.prototype, "getBanners", null);
+__decorate([
+    (0, common_1.Get)('users'),
+    (0, swagger_1.ApiOperation)({ summary: '获取用户列表' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: '请求成功' }),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], CommonController.prototype, "getUsers", null);
 __decorate([
     (0, common_1.Get)('getVideoList'),
     (0, swagger_1.ApiOperation)({ summary: '获取视频列表' }),
@@ -38,7 +60,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number, Number]),
     __metadata("design:returntype", void 0)
-], VideoController.prototype, "getVideoList", null);
+], CommonController.prototype, "getVideoList", null);
 __decorate([
     (0, common_1.Get)('getVideoDetail'),
     (0, swagger_1.ApiOperation)({ summary: '获取视频详情' }),
@@ -47,10 +69,10 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
-], VideoController.prototype, "getVideoDetail", null);
-exports.VideoController = VideoController = __decorate([
-    (0, common_1.Controller)('mock/video'),
+], CommonController.prototype, "getVideoDetail", null);
+exports.CommonController = CommonController = __decorate([
+    (0, common_1.Controller)('mock'),
     (0, swagger_1.ApiTags)('mock'),
-    __metadata("design:paramtypes", [typeof (_a = typeof video_service_1.VideoService !== "undefined" && video_service_1.VideoService) === "function" ? _a : Object])
-], VideoController);
-//# sourceMappingURL=video.controller.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof mock_service_1.MockService !== "undefined" && mock_service_1.MockService) === "function" ? _a : Object])
+], CommonController);
+//# sourceMappingURL=mock.controller.js.map

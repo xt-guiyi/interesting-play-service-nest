@@ -10,30 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
+exports.CommonController = void 0;
 const common_1 = require("@nestjs/common");
-const user_service_1 = require("modules/mockModule/services/user.service");
 const swagger_1 = require("@nestjs/swagger");
-let UserController = class UserController {
-    constructor(userService) {
-        this.userService = userService;
+let CommonController = class CommonController {
+    constructor(commonService) {
+        this.commonService = commonService;
     }
-    getUsers() {
-        return this.userService.getUsers();
+    getBanners() {
+        return this.commonService.getBanners();
     }
 };
-exports.UserController = UserController;
+exports.CommonController = CommonController;
 __decorate([
-    (0, common_1.Get)('users'),
-    (0, swagger_1.ApiOperation)({ summary: '获取用户列表' }),
+    (0, common_1.Get)('common/getBanners'),
+    (0, swagger_1.ApiOperation)({ summary: '获取轮播图数据' }),
     (0, swagger_1.ApiResponse)({ status: 200, description: '请求成功' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "getUsers", null);
-exports.UserController = UserController = __decorate([
+], CommonController.prototype, "getBanners", null);
+exports.CommonController = CommonController = __decorate([
     (0, common_1.Controller)('mock'),
     (0, swagger_1.ApiTags)('mock'),
-    __metadata("design:paramtypes", [typeof (_a = typeof user_service_1.UserService !== "undefined" && user_service_1.UserService) === "function" ? _a : Object])
-], UserController);
-//# sourceMappingURL=user.controller.js.map
+    __metadata("design:paramtypes", [typeof (_a = typeof CommonService !== "undefined" && CommonService) === "function" ? _a : Object])
+], CommonController);
+//# sourceMappingURL=index.controller.js.map

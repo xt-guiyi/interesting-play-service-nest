@@ -23,16 +23,16 @@ let CommonController = class CommonController {
 };
 exports.CommonController = CommonController;
 __decorate([
-    (0, common_1.Get)("common/getBanners"),
-    (0, swagger_1.ApiOperation)({ summary: "获取轮播图数据" }),
-    (0, swagger_1.ApiResponse)({ status: 200, description: "请求成功" }),
+    (0, common_1.Get)('common/getBanners'),
+    (0, swagger_1.ApiOperation)({ summary: '获取轮播图数据' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: '请求成功' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CommonController.prototype, "getBanners", null);
 exports.CommonController = CommonController = __decorate([
-    (0, common_1.Controller)("mock"),
-    (0, swagger_1.ApiTags)("common"),
+    (0, common_1.Controller)('mock'),
+    (0, swagger_1.ApiTags)('mock'),
     __metadata("design:paramtypes", [common_service_1.CommonService])
 ], CommonController);
 //# sourceMappingURL=common.controller.js.map

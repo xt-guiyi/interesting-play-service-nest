@@ -6,17 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MockModule = void 0;
+exports.MockService = void 0;
 const common_1 = require("@nestjs/common");
-const mock_service_1 = require("./services/mock.service");
-const mock_controller_1 = require("./controller/mock.controller");
-let MockModule = class MockModule {
+const common_2 = require("../../mocks/common");
+const user_1 = require("../../mocks/user");
+const video_1 = require("../../mocks/video");
+let MockService = class MockService {
+    getBanners() {
+        return (0, common_2.bannerMockData)();
+    }
+    getUsers() {
+        return user_1.userMockData;
+    }
+    getVideoList(page, pageSize) {
+        return (0, video_1.getPaginatedVideos)(page, pageSize);
+    }
+    getVideoDetail(id) {
+        return (0, video_1.videoDetail)(id);
+    }
 };
-exports.MockModule = MockModule;
-exports.MockModule = MockModule = __decorate([
-    (0, common_1.Module)({
-        providers: [mock_service_1.MockService],
-        controllers: [mock_controller_1.CommonController],
-    })
-], MockModule);
-//# sourceMappingURL=mock.module.js.map
+exports.MockService = MockService;
+exports.MockService = MockService = __decorate([
+    (0, common_1.Injectable)()
+], MockService);
+//# sourceMappingURL=mock.service.js.map
