@@ -1,8 +1,8 @@
 /*
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 22:11:05
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-09-16 14:08:50
+ * @LastEditors: xt-guiyi 1661219752@qq.com
+ * @LastEditTime: 2024-09-22 18:40:15
  * @Description:
  */
 // src/services/mock.service.ts
@@ -11,6 +11,7 @@ import { bannerMockData } from "@/mocks/common";
 import { userMockData } from '@/mocks/user'
 import { getPaginatedVideos, videoDetail } from '@/mocks/video'
 import { getPaginatedComments } from '@/mocks/comment'
+import { getPaginatedDiscover } from '@/mocks/discover'
 
 @Injectable()
 export class MockService {
@@ -32,5 +33,9 @@ export class MockService {
 
 	getCommentList(page, pageSize) {
 		return getPaginatedComments(page, pageSize)
+	}
+
+	getDiscoverList(page, pageSize) {
+		return getPaginatedDiscover(page, pageSize)
 	}
 }

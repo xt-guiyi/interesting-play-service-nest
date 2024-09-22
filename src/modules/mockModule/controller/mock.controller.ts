@@ -1,8 +1,8 @@
 /*
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 22:10:57
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-09-16 14:57:07
+ * @LastEditors: xt-guiyi 1661219752@qq.com
+ * @LastEditTime: 2024-09-22 18:35:58
  * @Description:
  */
 import { BadRequestException, Controller, Get, Query, Response } from '@nestjs/common'
@@ -47,5 +47,12 @@ export class CommonController {
 	@ApiResponse({ status: 200, description: '请求成功' })
 	getCommentList(@Query('page') page: number, @Query('pageSize') pageSize: number) {
 		return this.mockService.getCommentList(page, pageSize)
+	}
+
+	@Get('getDiscoverList')
+	@ApiOperation({ summary: '获取发现列表' })
+	@ApiResponse({ status: 200, description: '请求成功' })
+	getDiscoverList(@Query('page') page: number, @Query('pageSize') pageSize: number) {
+		return this.mockService.getDiscoverList(page, pageSize)
 	}
 }
