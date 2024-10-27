@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:38:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-25 23:34:26
+ * @LastEditTime: 2024-10-27 14:10:13
  * @Description:
  */
 import { getRandomInt } from '@/utils/tools'
@@ -60,38 +60,40 @@ const bannerList = [
 ]
 
 // 定义视频信息的数据结构
-const videoList = Mock.mock({
-	'videos|100': [
-		{
-			'id|+1': 1,
-			title: '@ctitle(5,50)',
-			pubDate: '@integer(24, 5000)', // 发布时间
-			duration: '@integer(24, 5000)', // 视频时长，范围从24秒到24000秒
-			desc: '@cword(10,30)',
-			pic: null, // 视频封面地址
-			url: 'https://www.bilibili.com/video/BV1xK4y1p7yN', // 播放地址
-			views: '@integer(1000, 1000000)', // 视频播放量，范围从1000到1000000
-			reply: '@integer(1000, 100000)', // 评论数
-			favorite: '@integer(1000, 10000)', // 收藏数
-			coin: '@integer(1000, 10000)', // 投币数
-			share: '@integer(1000, 10000)', // 分享数
-			like: '@integer(1000, 10000)', // 点赞数
-			dislike: '@integer(1000, 10000)', // 点踩数
-			danmaku: '@integer(1000, 10000)', // 弹幕数
-			owner: {
-				// 视频作者信息
-				mid: 66606350, // 作者id
-				name: '@cname', // 作者名称
-				fans: '@integer(1000, 100000)', // 作者粉丝数
-				videos: '@integer(5, 500)',
-				face: 'https://i2.hdslb.com/bfs/face/c9af3b32cf74baec5a4b65af8ca18ae5ff571f77.jpg', // 作者头像地址
+const videoList = () => {
+  return Mock.mock({
+		'videos|200': [
+			{
+				'id|+1': 1,
+				title: '@ctitle(5,50)',
+				pubDate: '@integer(24, 5000)', // 发布时间
+				duration: '@integer(24, 5000)', // 视频时长，范围从24秒到24000秒
+				desc: '@cword(10,30)',
+				pic: null, // 视频封面地址
+				url: 'https://www.bilibili.com/video/BV1xK4y1p7yN', // 播放地址
+				views: '@integer(1000, 1000000)', // 视频播放量，范围从1000到1000000
+				reply: '@integer(1000, 100000)', // 评论数
+				favorite: '@integer(1000, 10000)', // 收藏数
+				coin: '@integer(1000, 10000)', // 投币数
+				share: '@integer(1000, 10000)', // 分享数
+				like: '@integer(1000, 10000)', // 点赞数
+				dislike: '@integer(1000, 10000)', // 点踩数
+				danmaku: '@integer(1000, 10000)', // 弹幕数
+				owner: {
+					// 视频作者信息
+					mid: 66606350, // 作者id
+					name: '@cname', // 作者名称
+					fans: '@integer(1000, 100000)', // 作者粉丝数
+					videos: '@integer(5, 500)',
+					face: 'https://i2.hdslb.com/bfs/face/c9af3b32cf74baec5a4b65af8ca18ae5ff571f77.jpg', // 作者头像地址
+				},
 			},
-		},
-	],
-}).videos.map(item => {
-	item.pic = bannerList[getRandomInt(0, bannerList.length - 1)]
-	return item
-})
+		],
+	}).videos.map(item => {
+		item.pic = bannerList[getRandomInt(0, bannerList.length - 1)]
+		return item
+	})
+}
 
 /**
  * 根据页码和每页数量获取视频列表
@@ -100,10 +102,10 @@ const videoList = Mock.mock({
  * @returns {object} 包含视频列表和分页信息的对象
  */
 function getPaginatedVideos(page, pageSize) {
-	const total = videoList.length
+	const total = 200
 	const start = (page - 1) * pageSize
 	const end = page * pageSize
-	const data = videoList.slice(start, end)
+	const data = videoList().slice(start, end)
 
 	return {
 		page: Number(page),

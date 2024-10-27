@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:38:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-25 23:34:14
+ * @LastEditTime: 2024-10-27 14:10:32
  * @Description:
  */
 import * as Mock from 'mockjs'
@@ -12,9 +12,9 @@ const commentList = Mock.mock({
 		{
 			'id|+1': 1,
 			username: '@cname(5,8)',
-			pubDate: 1721498978810, // 发布时间
+			pubDate: 1727590998810, // 发布时间
 			ipAddress: '广东',
-			content: '@cword(8,300)',
+			content: '@cword(2,300)',
 			avatar: 'https://images.cubox.pro/1721051614822/384150/image.png',
 			like: '@integer(1000, 10000)', // 点赞数
 		},
