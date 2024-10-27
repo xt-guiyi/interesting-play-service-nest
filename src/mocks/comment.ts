@@ -1,8 +1,8 @@
 /*
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:38:57
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-09-16 17:06:15
+ * @LastEditors: xt-guiyi 1661219752@qq.com
+ * @LastEditTime: 2024-10-25 23:34:14
  * @Description:
  */
 import * as Mock from 'mockjs'
@@ -28,9 +28,9 @@ function getPaginatedComments(page, pageSize) {
 	const data = commentList.data.slice(start, end)
 
 	return {
-		page,
-		pageSize,
-		total,
+		page: Number(page),
+		pageSize: Number(pageSize),
+		total: Number(total),
 		data,
 	}
 }

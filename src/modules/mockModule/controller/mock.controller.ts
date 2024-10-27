@@ -2,10 +2,10 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 22:10:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-09-22 18:35:58
+ * @LastEditTime: 2024-10-13 19:43:42
  * @Description:
  */
-import { BadRequestException, Controller, Get, Query, Response } from '@nestjs/common'
+import { BadRequestException, Controller, Get, HttpException, Query, Response } from '@nestjs/common'
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { MockService } from 'modules/mockModule/services/mock.service'
 
@@ -33,6 +33,8 @@ export class CommonController {
 	@ApiResponse({ status: 200, description: '请求成功' })
 	getVideoList(@Query('page') page: number, @Query('pageSize') pageSize: number) {
 		return this.mockService.getVideoList(page, pageSize)
+    // 返回500错误
+    // throw new HttpException('', 500)
 	}
 
 	@Get('getVideoDetail')

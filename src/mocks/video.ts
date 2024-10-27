@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:38:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-07-21 15:24:21
+ * @LastEditTime: 2024-10-25 23:34:26
  * @Description:
  */
 import { getRandomInt } from '@/utils/tools'
@@ -106,9 +106,9 @@ function getPaginatedVideos(page, pageSize) {
 	const data = videoList.slice(start, end)
 
 	return {
-		page,
-		pageSize,
-		total,
+		page: Number(page),
+		pageSize: Number(pageSize),
+		total: Number(total),
 		data,
 	}
 }

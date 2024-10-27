@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:38:57
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-09-22 18:40:44
+ * @LastEditTime: 2024-10-25 23:33:54
  * @Description:
  */
 import { getRandomInt } from '@/utils/tools'
@@ -95,9 +95,9 @@ function getPaginatedDiscover(page, pageSize) {
 	const data = discoverList.slice(start, end)
 
 	return {
-		page,
-		pageSize,
-		total,
+		page: Number(page),
+		pageSize: Number(pageSize),
+		total: Number(total),
 		data,
 	}
 }
