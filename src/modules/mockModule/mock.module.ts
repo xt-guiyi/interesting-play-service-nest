@@ -8,9 +8,16 @@
 import { Module } from "@nestjs/common";
 import { MockService } from "./services/mock.service";
 import { CommonController } from "./controller/mock.controller";
-
+import { JwtStrategy } from './jwt.strategy';
+import { JwtModule } from '@nestjs/jwt';
 @Module({
-	providers: [MockService],
+	imports: [
+        JwtModule.register({
+            secret: 'your_secret_key', // 使用你的密钥
+            signOptions: { expiresIn: '60s' }, // 设置过期时间
+        }),
+    ],
+	providers: [MockService,JwtStrategy],
 	controllers: [CommonController],
 })
 export class MockModule {}
