@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:04:24
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-11 23:02:28
+ * @LastEditTime: 2024-10-28 21:11:18
  * @Description:
  */
 import { NestFactory } from '@nestjs/core'
@@ -18,6 +18,7 @@ async function bootstrap() {
 		.setTitle('love-life-service-nest')
 		.setDescription('后端服务(nest版)')
 		.setVersion('1.0')
+		.addBearerAuth()
 		.build()
 	const document = SwaggerModule.createDocument(app, config)
 	SwaggerModule.setup('swagger', app, document, {
