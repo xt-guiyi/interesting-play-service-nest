@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:04:24
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-28 21:11:18
+ * @LastEditTime: 2024-10-29 20:59:39
  * @Description:
  */
 import { NestFactory } from '@nestjs/core'
@@ -25,7 +25,7 @@ async function bootstrap() {
 		jsonDocumentUrl: 'swagger/json',
 	})
 	// 设置拦截器
-	app.useGlobalInterceptors(new formatInterceptor())
+	// app.useGlobalInterceptors(new formatInterceptor())
   // 允许跨域
 	app.enableCors({
 		origin: '*', // 允许的源，使用 '*' 可以允许所有源
