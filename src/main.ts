@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:04:24
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-31 22:40:30
+ * @LastEditTime: 2024-10-31 23:43:52
  * @Description:
  */
 import { NestFactory } from '@nestjs/core'
@@ -21,9 +21,19 @@ async function bootstrap() {
 		.addBearerAuth()
 		.build()
 	const document = SwaggerModule.createDocument(app, config)
-	SwaggerModule.setup('swagger', app, document, {
-		jsonDocumentUrl: 'swagger/json',
-	})
+ SwaggerModule.setup('swagger', app, document, {
+		customSiteTitle: '趣玩api文档',
+    // 设置为js文件，和css文件为cdn，防止vercel无法加载
+		customJs: [
+			'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.min.js',
+			'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.js',
+		],
+		customCssUrl: [
+			'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.min.css',
+			'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css',
+		],
+ })
 	// 设置拦截器
 	// app.useGlobalInterceptors(new formatInterceptor())
   // 允许跨域
