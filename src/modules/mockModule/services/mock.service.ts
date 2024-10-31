@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 22:11:05
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-28 21:33:43
+ * @LastEditTime: 2024-10-31 22:43:07
  * @Description:
  */
 // src/services/mock.service.ts
@@ -17,7 +17,7 @@ import * as path from 'path';
 import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class MockService {
-	private readonly filename = path.join('./src/modules/mockModule/', 'users.txt')
+	private readonly filename = path.join('./', 'users.txt')
 	constructor(private readonly jwtService: JwtService) {}
 	getBanners() {
 		return bannerMockData()

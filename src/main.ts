@@ -2,7 +2,7 @@
  * @Author: xt-guiyi 1661219752@qq.com
  * @Date: 2024-07-02 21:04:24
  * @LastEditors: xt-guiyi 1661219752@qq.com
- * @LastEditTime: 2024-10-29 20:59:39
+ * @LastEditTime: 2024-10-31 22:40:30
  * @Description:
  */
 import { NestFactory } from '@nestjs/core'
@@ -34,7 +34,7 @@ async function bootstrap() {
 		credentials: true, // 是否允许发送 cookie
 	})
 	// 启动服务
-	await app.listen(3000, () => {
+	await app.listen(process.env.PORT || 3000, () => {
 		// 获取本机ip地址
 		app.getUrl().then(url => {
 			console.log(`Server is running on ${url}`)
