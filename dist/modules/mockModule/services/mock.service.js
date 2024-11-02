@@ -22,7 +22,7 @@ const jwt_1 = require("@nestjs/jwt");
 let MockService = class MockService {
     constructor(jwtService) {
         this.jwtService = jwtService;
-        this.filename = path.join('./', 'users.txt');
+        this.filename = path.join(__dirname, '../../../../', 'users.txt');
     }
     getBanners() {
         return (0, common_2.bannerMockData)();
